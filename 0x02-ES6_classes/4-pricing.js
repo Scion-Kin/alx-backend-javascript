@@ -3,7 +3,7 @@ import Currency from './3-currency';
 export default class Pricing {
   constructor(amount, currency) {
     this.amount = amount;
-    this.currency = new Currency(currency.code, currency.name);
+    this.currency = currency;
   }
 
   get amount() {
@@ -23,7 +23,8 @@ export default class Pricing {
   }
 
   displayFullPrice() {
-    return `${this.amount} ${this.currency.name} (${this.currency.code})`;
+    const currency = new Currency(this.currency.code, this.currency.name);
+    return `${this.amount} ${currency.displayFullCurrency()}`;
   }
 
   static convertPrice(amount, conversionRate) {
