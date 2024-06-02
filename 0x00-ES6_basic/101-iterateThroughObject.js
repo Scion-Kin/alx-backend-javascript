@@ -3,5 +3,5 @@ export default function iterateThroughObject(reportWithIterator) {
   for (const i of reportWithIterator) {
     str += `${i} | `;
   }
-  return str.slice(0, -3);
+  return str.slice(0, -3); // remove the last unused separator
 }
