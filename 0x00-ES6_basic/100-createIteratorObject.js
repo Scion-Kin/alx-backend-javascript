@@ -7,4 +7,5 @@ export default function* createIteratorObject(report) {
   for (const i of all) {
     yield i;
   }
+  // no return needed
 }
