@@ -1,5 +1,8 @@
 export default function cleanSet(set, str) {
-  if (!str || !set || typeof str !== 'string' || !(set instanceof Set)) return '';
+  if (!(set instanceof Set) || typeof str !== 'string' || !str) return '';
 
-  return [...set.values()].filter((val) => val.startsWith(str)).map((val) => val.slice(str.length)).join('-');
+  return [...set]
+    .filter((val) => typeof val === 'string' && val.startsWith(str))
+    .map((val) => val.slice(str.length))
+    .join('-');
 }
