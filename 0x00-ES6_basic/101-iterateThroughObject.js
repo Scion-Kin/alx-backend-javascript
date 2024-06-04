@@ -1,7 +1,7 @@
 export default function iterateThroughObject(reportWithIterator) {
-  let str = '';
+  const arr = [];
   for (const i of reportWithIterator) {
-    str += `${i} | `;
+    arr.push(i);
   }
-  return str.slice(0, -3); // remove the last unused separator
+  return [...arr].join(' | ');
 }
