@@ -21,7 +21,6 @@ async function countStudents(file) {
     });
     return response.join('\n');
   } catch (error) {
-    console.log(error);
     return 'Cannot load the database';
   }
 }
