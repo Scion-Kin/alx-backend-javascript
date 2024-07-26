@@ -18,7 +18,7 @@ async function countStudents(file) {
     });
     return response.join('\n');
   } catch (error) {
-    return '';
+    throw new Error('Cannot load the database');
   }
 }
 
@@ -26,7 +26,14 @@ const app = require('http').createServer((req, res) => {
   if (req.url === '/') {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
-    countStudents(process.argv[2]).then((data) => res.end(data));
+    countStudents(process.argv[2])
+      .then((data) => {
+        res.write('This is the list of our students\n');
+        res.write(data);
+        res.end();
+    }).catch(error => {
+        res.end(error);
+    });
   }
 }).listen(1245);
 
