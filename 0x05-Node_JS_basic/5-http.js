@@ -31,9 +31,9 @@ const app = require('http').createServer((req, res) => {
         res.write('This is the list of our students\n');
         res.write(data);
         res.end();
-    }).catch(error => {
-        res.end(error);
-    });
+      }).catch((error) => {
+        res.end(error.message);
+      });
   }
 }).listen(1245);
 
