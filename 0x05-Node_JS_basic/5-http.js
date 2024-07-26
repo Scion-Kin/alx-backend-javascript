@@ -18,7 +18,7 @@ async function countStudents(file) {
     });
     return response.join('\n');
   } catch (error) {
-    throw new Error('Cannot load the database');
+    return 'Cannot load the database';
   }
 }
 
@@ -31,8 +31,6 @@ const app = require('http').createServer((req, res) => {
         res.write('This is the list of our students\n');
         res.write(data);
         res.end();
-      }).catch((error) => {
-        res.end(error.message);
       });
   }
 }).listen(1245);
