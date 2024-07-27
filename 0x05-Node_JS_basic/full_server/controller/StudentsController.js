@@ -21,7 +21,7 @@ module.exports = class StudentsController {
       return response.status(500).send('Major parameter must be CS or SWE');
     }
     return readDatabase(process.argv[2])
-      .then((data) => response.send(`List: ${data[major].join(', ')}\n`))
+      .then((data) => response.send(`List: ${data[major].join(', ')}`))
       .catch((error) => response.status(500).send(error.message));
   }
 };
