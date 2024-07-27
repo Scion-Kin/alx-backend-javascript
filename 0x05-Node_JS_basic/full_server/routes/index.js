@@ -1,5 +1,5 @@
-const AppController = require('../controller/AppController');
-const StudentsController = require('../controller/StudentsController');
+const AppController = require('../controllers/AppController');
+const StudentsController = require('../controllers/StudentsController');
 
 const routes = (app) => {
   app.get('/', AppController.getHomepage);
