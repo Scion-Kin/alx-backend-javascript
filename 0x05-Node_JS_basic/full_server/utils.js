@@ -18,6 +18,6 @@ module.exports = async function readDatabase(file) {
     });
     return response;
   } catch (error) {
-    throw new Error(error);
+    throw new Error('Cannot load the database');
   }
 };
